@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Surprise 💖</title>
+<style>
+/* ===== GLOBAL ===== */
+body, html {
+  margin:0; padding:0;
+  font-family: Arial, sans-serif;
+  background: url('backgroundimage.jpg') no-repeat center center/cover;
+  color:#fff;
+  text-align:center;
+  height:100vh;
+  overflow:hidden;
+}
+.container {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  max-width:700px;
+  width:90%;
+}
+h1,h2{margin:20px 0;}
+h1{font-size:3rem; animation:fadeIn 2s;}
+h2{font-size:2.5rem; color:#ff69b4; animation:fadeIn 2s;}
+p{font-size:1.3rem; line-height:1.5;}
+button, a.btn{
+  padding:12px 25px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:5px;
+  background:#ff69b4;
+  color:#fff;
+  cursor:pointer;
+  margin-top:20px;
+  text-decoration:none;
+  transition:0.3s;
+}
+button:hover, a.btn:hover{background:#ff1493;}
+.section{display:none; animation:fadeIn 1s;}
+.active{display:block;}
+.message{margin-top:30px; font-size:1.5rem; color:#fff; display:none;}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<!-- FRONT PAGE -->
+<div id="page1" class="container section active">
+<h1>Hello, [Her Name] 💖</h1>
+<p>Welcome to this special little surprise!</p>
+<button onclick="showPage(2)">Next</button>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page2" class="container section">
+<h2>About You 💖</h2>
+<p>You are such a wonderful person, full of positivity and charm. Every moment I think about you, I feel happy and inspired.</p>
+<button onclick="showPage(3)">Next</button>
+</div>
+
+<!-- SURPRISE PAGE -->
+<div id="page3" class="container section">
+<h2>Click for a Surprise 🎉</h2>
+<button id="surpriseBtn">Surprise!</button>
+<p class="message" id="surpriseMessage">You are amazing and very special! 💖</p>
+<br>
+<button onclick="showPage(4)">Next</button>
+</div>
+
+<!-- PROPOSAL PAGE -->
+<div id="page4" class="container section">
+<h2>My Proposal 💌</h2>
+<p>I <span style="background-color:#ff69b4; padding:2px 5px; border-radius:3px;">like you</span> and I want to make a <span style="background-color:#ff69b4; padding:2px 5px; border-radius:3px;">special bond</span> with you. 💖</p>
+<p>So tell me, <span style="background-color:#ff69b4; padding:2px 5px; border-radius:3px;">what’s in your heart?</span></p>
+</div>
+
+<script>
+// Function to switch pages
+function showPage(num){
+  const pages = ['page1','page2','page3','page4'];
+  pages.forEach(p=>{
+    document.getElementById(p).classList.remove('active');
+  });
+  document.getElementById('page'+num).classList.add('active');
+}
+
+// Surprise button
+document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+  document.getElementById('surpriseMessage').style.display='block';
+});
+</script>
+
+</body>
+</html>
